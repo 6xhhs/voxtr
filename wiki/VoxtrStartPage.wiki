@@ -6,6 +6,6 @@
 Voxtr - The Voice Recorder for your mobile phone
 
 
-= Pages =
+== Pages ==
 
 [TestedOnDevicesOverview Overview of tested devices]
