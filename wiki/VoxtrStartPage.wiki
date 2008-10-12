@@ -5,8 +5,6 @@
 
 *Voxtr* - The Voice Recorder for your mobile phone
 
-[http://code.google.com/p/voxtr/source/browse/trunk/dist/Voxtr.jar Download the latest jar-file here.]
-
 == Pages ==
 
 [TestedOnDevicesOverview Overview of tested devices]
