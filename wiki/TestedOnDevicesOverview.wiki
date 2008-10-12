@@ -1,0 +1,24 @@
+#summary Overview of tested devices.
+#labels overview,devices,phone,mobile
+
+= Overview of tested devices. =
+
+Please help us test Voxtr on different devices. Mail your reports to: {{{dariusmailbox AT gmail DOT com}}}
+
+Tested on following devices:
+(See below for legend.)
+
+||                 || _0.0.1_ || _0.0.2_ ||
+|| _Sony Ericsson_ ||         ||         ||
+|| W910i           || Y       || Y       ||
+|| W850i           || N       || Y       ||
+|| K610i           || N       || Y       ||
+|| _(more to come)_||         || ...     ||
+
+*Legend:*
+|| Y          || Works (tested by Voxtr team) ||
+|| y          || Works (reported by external person) ||
+|| N          || Doesn't work (tested by Voxtr team) ||
+|| n          || Doesn't work (reported by external person) ||
+|| Y? _or_ y? || Worked in previous version (not tested for this version) ||
+|| N? _or_ n? || Didn't work in previous version (not tested for this version) ||
