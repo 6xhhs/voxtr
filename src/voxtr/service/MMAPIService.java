@@ -56,15 +56,15 @@ public class MMAPIService {
     public void startAudioPlaying() {
         log("startAudioPlaying() BEGIN");
 
-        String[] protocols = Manager.getSupportedProtocols(null);
-        for (int i=0, len=protocols.length; i<len; ++i) {
-            log("["+protocols[i]+"]");
-            String[] contentTypes = Manager.getSupportedContentTypes(protocols[i]);
-            for (int j=0, len2=contentTypes.length; j<len2; ++j) {
-                log("  ["+contentTypes[j]+"]");                
-            }
-        }
-        log("- - - - -");
+//        String[] protocols = Manager.getSupportedProtocols(null);
+//        for (int i=0, len=protocols.length; i<len; ++i) {
+//            log("["+protocols[i]+"]");
+//            String[] contentTypes = Manager.getSupportedContentTypes(protocols[i]);
+//            for (int j=0, len2=contentTypes.length; j<len2; ++j) {
+//                log("  ["+contentTypes[j]+"]");                
+//            }
+//        }
+//        log("- - - - -");
 
         try {
             InputStream is = new ByteArrayInputStream(mAudioData);
@@ -110,15 +110,17 @@ public class MMAPIService {
                 mRecordControl.stopRecord();
                 mRecordControl.commit();
                 mPlayer.stop();
+                mContentType = mRecordControl.getContentType();
                 mRecordingOutput.close();
                 mPlayer.close();
-                mContentType = mRecordControl.getContentType();
                 mAudioData = mRecordingOutput.toByteArray();
                 mRecordingOutput = null;
                 mPlayer = null;
             } catch (IOException ex) {
                 ex.printStackTrace();
             } catch (MediaException ex) {
+                ex.printStackTrace();
+            } catch (IllegalStateException ex) {
                 ex.printStackTrace();
             }
         } else {
