@@ -60,11 +60,9 @@ public class MainUI implements CommandListener, Showable {
         
         mRecorderUI = new RecorderUI(mMidlet, (Showable)this, mAudioController);
         
-        log("supports.audio.capture = "+System.getProperty("supports.audio.capture"));
-        log("supports.recording = "+System.getProperty("supports.recording"));
-        log("supports.video.capture = "+System.getProperty("supports.video.capture"));
-        log("hepp = "+System.getProperty("hepp"));
-        
+//        log("supports.recording = "+System.getProperty("supports.recording"));
+//        log("supports.audio.capture = "+System.getProperty("supports.audio.capture"));
+//        log("supports.video.capture = "+System.getProperty("supports.video.capture"));        
     }
     
     // Implementation of Showable interface
