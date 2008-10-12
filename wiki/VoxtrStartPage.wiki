@@ -3,7 +3,7 @@
 
 = Welcome to Voxtr - the open source project =
 
-Voxtr - The Voice Recorder for your mobile phone
+*Voxtr* - The Voice Recorder for your mobile phone
 
 
 == Pages ==
