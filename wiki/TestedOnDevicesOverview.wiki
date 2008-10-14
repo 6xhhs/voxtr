@@ -10,16 +10,17 @@ Tested on following devices:
 
 ||                 || _0.0.1_ || _0.0.2_ ||
 || _Sony Ericsson_ ||         ||         ||
-|| W710i           || N/A     || Y       ||
-|| W910i           || Y       || Y       ||
-|| W850i           || N       || Y       ||
-|| K610i           || N       || Y       ||
+|| W910i           || y       || y       ||
+|| W850i           || n       || y       ||
+|| W710i           || -       || y       ||
+|| K610i           || n       || y       ||
 || _(more to come)_||         || ...     ||
 
 *Legend:*
-|| Y          || Works (tested by Voxtr team) ||
-|| y          || Works (reported by external person) ||
-|| N          || Doesn't work (tested by Voxtr team) ||
-|| n          || Doesn't work (reported by external person) ||
-|| Y? _or_ y? || Worked in previous version (not tested for this version) ||
-|| N? _or_ n? || Didn't work in previous version (not tested for this version) ||
+|| y          || Works (tested by Voxtr team) ||
+|| Y          || Works (reported by external person) ||
+|| n          || Doesn't work (tested by Voxtr team) ||
+|| N          || Doesn't work (reported by external person) ||
+|| y? _or_ Y? || Worked in previous version (not tested for this version) ||
+|| n? _or_ N? || Didn't work in previous version (not tested for this version) ||
+|| -          || Not tested ||
