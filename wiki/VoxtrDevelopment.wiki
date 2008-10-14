@@ -1,0 +1,20 @@
+#summary The development of Voxtr including Wishlist, Maybelist and Neverlist
+
+= Development =
+
+== Implemented ==
+  * Basic functionality (record, listen, delete, exit)
+
+
+== Wishlist ==
+  * Better UI
+  * Utilize Microlog
+
+
+== Maybelist ==
+  * Send recordings via MMS
+  * Send recordings via mail
+
+
+== Neverlist ==
+  * ~~Record videos~~
