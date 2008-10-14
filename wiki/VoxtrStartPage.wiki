@@ -7,4 +7,5 @@
 
 == Pages ==
 
-[TestedOnDevicesOverview Overview of tested devices]
+  *[TestedOnDevicesOverview Overview of tested devices]
+  *[VoxtrDevelopment The development of Voxtr]
