@@ -4,7 +4,7 @@
 
 == Implemented ==
   * Basic functionality (record, listen, delete, exit)
-
+  * Auto-generated name on recording, like this: 15-Oct 19:05 (5s)
 
 == Wishlist ==
   * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
@@ -16,7 +16,6 @@
   * Send recordings via MMS
   * Send recordings via mail
   * Save recording to file.
-  * The recording should have a better auto-generated name, like the date or a sequence number.
   * It should be possible to change the name of a recording.
   * It should be possible to add a note to each recording.
   * Utilize Microinstall (SMS to send the application)
