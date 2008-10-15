@@ -20,7 +20,7 @@
   * It should be possible to change the name of a recording.
   * It should be possible to add a note to each recording.
   * Utilize Microinstall (SMS to send the application)
-  * The strings <Record> & <Exit> should maybe be Record and Exit?
+  * The strings \<Record> & <Exit> should maybe be Record and Exit?
 
 == Neverlist ==
   * ~~Record videos~~
