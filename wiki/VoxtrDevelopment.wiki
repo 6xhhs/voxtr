@@ -16,6 +16,7 @@
 == Maybelist ==
   * Send recordings via MMS
   * Send recordings via mail
+  * Save recording to file.
   * The recording should have a name including a sequence number.
   * It should be possible to change the name of a recording.
   * It should be possible to add a note to each recording.
