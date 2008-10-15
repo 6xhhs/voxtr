@@ -13,6 +13,9 @@
 
 
 == Maybelist ==
+  * A warning should be shown if the is in silent mode
+  * Some kind of visual indicator should be shown when the recording is ongoing.
+  * A progress bar should be shown when playing the recording.
   * Send recordings via MMS
   * Send recordings via mail
   * Save recording to file.
