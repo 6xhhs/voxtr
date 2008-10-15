@@ -65,8 +65,6 @@ public class RecordingService {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         
-        
-        
         String monthString;
         switch (month) {
             case Calendar.JANUARY:
@@ -110,8 +108,11 @@ public class RecordingService {
                 break;
         }
         
+        String hourString = hour<10 ? "0"+hour : Integer.toString(hour);
+        String minuteString = minute<10 ? "0"+minute : Integer.toString(minute);
+        
         String length = getSecondsString(pStartTime, pStopTime);
-        return day+"-"+monthString+" "+hour+":"+minute+" ("+length+")";
+        return day+"-"+monthString+" "+hourString+":"+minuteString+" ("+length+")";
     }
     
 }
