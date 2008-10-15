@@ -52,7 +52,7 @@ public class AudioController {
         
         if (audioData != null) {
             if (audioData.length > 0) {
-                String name = RecordingService.getSecondsString(
+                String name = RecordingService.createName(
                         mStartTimeMillis, stopTimeMillis);
                 Recording recording = new Recording(
                         mStartTimeMillis, stopTimeMillis, name, 

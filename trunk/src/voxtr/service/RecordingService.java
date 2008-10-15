@@ -14,6 +14,8 @@
 
 package voxtr.service;
 
+import java.util.Calendar;
+import java.util.Date;
 import voxtr.data.Recording;
 import voxtr.persist.RecordingDB;
 
@@ -23,7 +25,7 @@ import voxtr.persist.RecordingDB;
  */
 public class RecordingService {
 
-    protected static final String SECONDS_STRING = "sec";
+    protected static final String SECONDS_STRING = "s";
     
     public static Recording getRecording(long pTimestamp) {
         return RecordingDB.select(pTimestamp);
@@ -48,14 +50,68 @@ public class RecordingService {
     public static long getLengthTimeMillis(Recording pRecording) {
         return pRecording.getStopTimeMillis() - pRecording.getStartTimeMillis();
     }
-
-    public static String getSecondsString(Recording pRecording) {
-        return getSecondsString(pRecording.getStartTimeMillis(), 
-                pRecording.getStopTimeMillis());
-    }
     
     public static String getSecondsString(long pStartTime, long pStopTime) {
-        return ((pStopTime-pStartTime)/1000)+" "+SECONDS_STRING;
+        return ((pStopTime-pStartTime)/1000)+SECONDS_STRING;
+    }
+    
+    public static String createName(long pStartTime, long pStopTime) {
+        Date time = new Date(pStopTime);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(time);
+        
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        
+        
+        
+        String monthString;
+        switch (month) {
+            case Calendar.JANUARY:
+                monthString = "Jan";
+                break;
+            case Calendar.FEBRUARY:
+                monthString = "Feb";
+                break;
+            case Calendar.MARCH:
+                monthString = "Mar";
+                break;
+            case Calendar.APRIL:
+                monthString = "Apr";
+                break;
+            case Calendar.MAY:
+                monthString = "May";
+                break;
+            case Calendar.JUNE:
+                monthString = "Jun";
+                break;
+            case Calendar.JULY:
+                monthString = "Jul";
+                break;
+            case Calendar.AUGUST:
+                monthString = "Aug";
+                break;
+            case Calendar.SEPTEMBER:
+                monthString = "Sep";
+                break;
+            case Calendar.OCTOBER:
+                monthString = "Oct";
+                break;
+            case Calendar.NOVEMBER:
+                monthString = "Nov";
+                break;
+            case Calendar.DECEMBER:
+                monthString = "Dec";
+                break;
+            default:
+                monthString = "???";
+                break;
+        }
+        
+        String length = getSecondsString(pStartTime, pStopTime);
+        return day+"-"+monthString+" "+hour+":"+minute+" ("+length+")";
     }
     
 }
