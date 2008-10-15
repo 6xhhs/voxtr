@@ -7,6 +7,8 @@
 
 
 == Wishlist ==
+  * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
+  * A beep should be heard before starting the recording.
   * Better UI
   * Utilize Microlog
 
@@ -14,8 +16,6 @@
 == Maybelist ==
   * Send recordings via MMS
   * Send recordings via mail
-  * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
-  * A beep should be heard before starting the recording.
   * The recording should have a name including a sequence number.
   * It should be possible to change the name of a recording.
   * It should be possible to add a note to each recording.
