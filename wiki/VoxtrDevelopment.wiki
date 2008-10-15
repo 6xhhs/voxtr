@@ -14,6 +14,8 @@
 == Maybelist ==
   * Send recordings via MMS
   * Send recordings via mail
+  * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
+  * A beep should be heard before starting the recording.
 
 
 == Neverlist ==
