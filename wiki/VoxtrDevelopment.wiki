@@ -9,7 +9,6 @@
 == Wishlist ==
   * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
   * A beep should be heard before starting the recording.
-  * Better UI
   * Utilize Microlog
 
 
