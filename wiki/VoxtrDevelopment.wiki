@@ -18,7 +18,7 @@
   * A beep should be heard before starting the recording.
   * The recording should have a name including a sequence number.
   * It should be possible to change the name of a recording.
-
+  * It should be possible to add a note to each recording.
 
 == Neverlist ==
   * ~~Record videos~~
