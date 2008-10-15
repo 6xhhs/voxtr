@@ -23,7 +23,7 @@ public class C {
     //CONSTANTS
     
     public static final String APP_STRING_APPLICATION_NAME = "Voxtr";
-    public static final String APP_STRING_APPLICATION_VERSION = "v0.0.2";
+    public static final String APP_STRING_APPLICATION_VERSION = "v0.0.3";
 
     public static final String APP_STRING_SOFTKEY_OK = "OK";
     public static final String APP_STRING_SOFTKEY_SELECT = "Select";

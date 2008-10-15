@@ -96,7 +96,7 @@ public class MainUI implements CommandListener, Showable {
                 updateUI();
             }
         } else {
-            log("WARNING! Unkown command was executed.");
+            log("WARNING! Unknown command was executed.");
         }
     }
     
