@@ -22,7 +22,7 @@
   * Send recordings via mail
   * Save recording to file.
   * It should be possible to change the name of a recording.
-  * It should be possible to add a note to each recording.
+  
   * Send the application to another user (Microinstall)
   * Check for new version (Microinstall)
   * About dialog with the following information: Voxtr version, the development team members, credits?, links to Voxtr, Microlog, Microinstall
@@ -30,3 +30,4 @@
 
 == Neverlist ==
   * ~~Record videos~~
+  * ~~It should be possible to add a note to each recording.~~
