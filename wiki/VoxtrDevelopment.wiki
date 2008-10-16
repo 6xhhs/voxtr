@@ -13,7 +13,7 @@
 
 
 == Maybelist ==
-  * A warning should be shown if the is in silent mode
+  * A warning should be shown if the phone is in silent mode
   * Some kind of visual indicator should be shown when the recording is ongoing.
   * A progress bar should be shown when playing the recording.
   * Send recordings via MMS
@@ -21,7 +21,10 @@
   * Save recording to file.
   * It should be possible to change the name of a recording.
   * It should be possible to add a note to each recording.
-  * Utilize Microinstall (SMS to send the application)
+  * Send the application to another user (Microinstall)
+  * Check for new version (Microinstall)
+  * About dialog with the following information: Voxtr version, the development team members, credits?, links to Voxtr, Microlog, Microinstall
+  * Help dialog
 
 == Neverlist ==
   * ~~Record videos~~
