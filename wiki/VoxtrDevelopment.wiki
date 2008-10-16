@@ -13,7 +13,7 @@
 
 
 == Maybelist ==
-  * Add an icon to items in the list, e.g. the "Record" should have a triangle.
+  * Add an icon to items in the list, e.g. the "Record" should have a triangle. The "Exit" could have a "backward arrow". Maybe some icon for the recordings as well?
   * Better formatting: If the recoding is longer than 60 secs, the format should be: hh:ss.
   * A warning should be shown if the phone is in silent mode
   * Some kind of visual indicator should be shown when the recording is ongoing.
