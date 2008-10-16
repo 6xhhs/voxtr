@@ -4,7 +4,7 @@
 
 == Implemented ==
   * Basic functionality (record, listen, delete, exit)
-  * Auto-generated name on recording, like this: 15-Oct 19:05 (5s)
+  * Auto-generate name on recording, like this: 15-Oct 19:05 (5s)
   * Added More UI with Delete, Help, About and Exit actions
 
 == Wishlist ==
