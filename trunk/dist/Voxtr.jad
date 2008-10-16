@@ -1,8 +1,0 @@
-MIDlet-1: Voxtr,,voxtr.midlet.VoxtrMidlet
-MIDlet-Jar-Size: 18957
-MIDlet-Jar-URL: Voxtr.jar
-MIDlet-Name: Voxtr
-MIDlet-Vendor: The Voxtr team
-MIDlet-Version: 0.0.3
-MicroEdition-Configuration: CLDC-1.0
-MicroEdition-Profile: MIDP-2.0
