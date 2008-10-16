@@ -12,7 +12,7 @@ Tested on following devices:
 || _Sony Ericsson_ ||         ||
 || W910i           || y       ||
 || W850i           || y       ||
-|| W710i           || y?      ||
+|| W710i           || y       ||
 || K800i           || y       ||
 || K610i           || y       ||
 || _(more to come)_|| ...     ||
