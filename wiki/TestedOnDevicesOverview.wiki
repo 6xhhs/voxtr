@@ -11,7 +11,7 @@ Tested on following devices:
 ||                 || _0.0.3_ || *0.1.0* ||
 || _Sony Ericsson_ ||         ||         ||
 || W910i           || y       || y?      ||
-|| W850i           || y       || y?      ||
+|| W850i           || y       || y       ||
 || W710i           || y       || y?      ||
 || K800i           || y       || y?      ||
 || K610i           || y       || y       ||
