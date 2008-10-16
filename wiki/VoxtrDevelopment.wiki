@@ -5,17 +5,17 @@
 == Implemented ==
   * Basic functionality (record, listen, delete, exit)
   * Auto-generated name on recording, like this: 15-Oct 19:05 (5s)
+  * Added More UI with Delete, Help, About and Exit actions
 
 == Wishlist ==
   * Better UI (items? canvas? lwuit?)
-  * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
   * A beep should be heard before starting the recording.
   * Utilize Microlog
 
 
 == Maybelist ==
   * Add an icon to items in the list, e.g. the "Record" should have a triangle. The "Exit" could have a "backward arrow". Maybe some icon for the recordings as well?
-  * Better formatting: If the recoding is longer than 60 secs, the format should be: hh:ss.
+  * Better formatting: If the recoding is longer than 60 secs, the format should be: mm:ss.
   * A warning should be shown if the phone is in silent mode
   * Some kind of visual indicator should be shown when the recording is ongoing. Maybe a red blinking triangle?
   * A progress bar should be shown when playing the recording.
