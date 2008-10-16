@@ -16,6 +16,8 @@
   * A warning should be shown if the phone is in silent mode
   * Some kind of visual indicator should be shown when the recording is ongoing.
   * A progress bar should be shown when playing the recording.
+  * Show a warning dialog if the recording fails (MediaException)
+  * Warn if low on memory (in RMS)
   * Send recordings via MMS
   * Send recordings via mail
   * Save recording to file.
