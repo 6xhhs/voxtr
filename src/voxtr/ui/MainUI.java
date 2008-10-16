@@ -36,10 +36,11 @@ public class MainUI implements CommandListener, Showable {
     protected MIDlet mMidlet;
     
     protected Command mSelectCommand;
-    protected Command mDeleteCommand;
+    protected Command mMoreCommand;
     protected List mList;
     
     protected Showable mRecorderUI;
+    protected MoreUI mMoreUI;
     
     protected AudioController mAudioController;
     
@@ -49,20 +50,17 @@ public class MainUI implements CommandListener, Showable {
         mMidlet = pMidlet;
         
         mSelectCommand = new Command(C.APP_STRING_SOFTKEY_SELECT, Command.OK, 10);
-        mDeleteCommand = new Command("Delete", Command.STOP, 10);
+        mMoreCommand = new Command(C.APP_STRING_SOFTKEY_MORE, Command.STOP, 10); //.STOP to avoid softkey menu
         mList = new List(C.APP_STRING_APPLICATION_NAME+
-                " ("+C.APP_STRING_APPLICATION_VERSION+")", List.IMPLICIT);
+                " (v"+C.APP_STRING_APPLICATION_VERSION+")", List.IMPLICIT);
         mList.setSelectCommand(mSelectCommand);
-        mList.addCommand(mDeleteCommand);
+        mList.addCommand(mMoreCommand);
         mList.setCommandListener((CommandListener)this);
 
         mAudioController = new AudioController();
         
+        mMoreUI = new MoreUI(mMidlet, (Showable)this);
         mRecorderUI = new RecorderUI(mMidlet, (Showable)this, mAudioController);
-        
-//        log("supports.recording = "+System.getProperty("supports.recording"));
-//        log("supports.audio.capture = "+System.getProperty("supports.audio.capture"));
-//        log("supports.video.capture = "+System.getProperty("supports.video.capture"));        
     }
     
     // Implementation of Showable interface
@@ -77,9 +75,6 @@ public class MainUI implements CommandListener, Showable {
             int selected = mList.getSelectedIndex();
             if (selected == 0) { // record
                 mRecorderUI.show();
-            } else if (selected == mRecMeta.length+1) { // exit
-                ((VoxtrMidlet)mMidlet).destroyApp(true);
-                mMidlet.notifyDestroyed();
             } else { // play
                 int index = selected-1;
                 Recording meta = mRecMeta[index];
@@ -87,14 +82,15 @@ public class MainUI implements CommandListener, Showable {
                 Recording rec = RecordingService.getRecording(timestamp);
                 mAudioController.playSound(rec.getContentType(), rec.getData());
             }
-        } else if (pCommand == mDeleteCommand) {
+        } else if (pCommand == mMoreCommand) {
             int selected = mList.getSelectedIndex();
-            if (selected != 0 && selected != mRecMeta.length+1) { // record
-                int index = selected - 1;
-                Recording rec = mRecMeta[index];
-                RecordingService.deleteRecording(rec);
-                updateUI();
+            if (selected > 0) { // a recording is active
+                Recording rec = mRecMeta[selected-1];
+                mMoreUI.setRecording(rec);
+            } else { // the record-button is active
+                mMoreUI.setRecording(null);
             }
+            mMoreUI.show();
         } else {
             log("WARNING! Unknown command was executed.");
         }
@@ -102,15 +98,13 @@ public class MainUI implements CommandListener, Showable {
     
     protected Displayable updateUI() {
         mList.deleteAll();
-        mList.append("<Record>", null);
+        mList.append("Record", null);
         
         mRecMeta = RecordingService.getAllRecordingsMeta();
         for (int i=0, len=mRecMeta.length; i<len; ++i) {
             String name = mRecMeta[i].getName();
             mList.append(name, null);
         }
-        
-        mList.append("<Exit>", null);
         
         return mList;
     }
