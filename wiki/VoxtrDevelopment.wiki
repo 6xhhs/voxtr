@@ -7,6 +7,7 @@
   * Auto-generated name on recording, like this: 15-Oct 19:05 (5s)
 
 == Wishlist ==
+  * Better UI (items? canvas? lwuit?)
   * The "Delete" command should be disabled when not applicable, e.g. when "new recording" is selected.
   * A beep should be heard before starting the recording.
   * Utilize Microlog
