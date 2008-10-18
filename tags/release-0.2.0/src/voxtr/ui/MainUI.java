@@ -1,0 +1,118 @@
+/*
+ * Copyright 2008 Voxtr - The Open Source Project 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *
+*/
+
+package voxtr.ui;
+
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Display;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.List;
+import javax.microedition.midlet.MIDlet;
+import voxtr.controller.AudioController;
+import voxtr.data.C;
+import voxtr.data.Recording;
+import voxtr.midlet.VoxtrMidlet;
+import voxtr.service.RecordingService;
+import voxtr.util.Logger;
+
+/**
+ *
+ * @author Darius Katz (dariusmailbox@gmail.com)
+ */
+public class MainUI implements CommandListener, Showable {
+
+    protected MIDlet mMidlet;
+    
+    protected Command mSelectCommand;
+    protected Command mMoreCommand;
+    protected List mList;
+    
+    protected Showable mRecorderUI;
+    protected MoreUI mMoreUI;
+    
+    protected AudioController mAudioController;
+    
+    protected Recording[] mRecMeta;
+    
+    public MainUI(MIDlet pMidlet) {
+        mMidlet = pMidlet;
+        
+        mSelectCommand = new Command(C.APP_STRING_SOFTKEY_SELECT, Command.OK, 10);
+        mMoreCommand = new Command(C.APP_STRING_SOFTKEY_MORE, Command.STOP, 10); //.STOP to avoid softkey menu
+        mList = new List(C.APP_STRING_APPLICATION_NAME+
+                " (v"+C.APP_STRING_APPLICATION_VERSION+")", List.IMPLICIT);
+        mList.setSelectCommand(mSelectCommand);
+        mList.addCommand(mMoreCommand);
+        mList.setCommandListener((CommandListener)this);
+
+        mAudioController = new AudioController();
+        
+        mMoreUI = new MoreUI(mMidlet, (Showable)this);
+        mRecorderUI = new RecorderUI(mMidlet, (Showable)this, mAudioController);
+    }
+    
+    // Implementation of Showable interface
+    public void show() {
+        Displayable ui = updateUI();
+        Display.getDisplay(mMidlet).setCurrent(ui);
+    }
+    
+    // Implementation of CommandListener interface
+    public void commandAction(Command pCommand, Displayable pDisplayable) {
+        if (pCommand == mSelectCommand) {
+            int selected = mList.getSelectedIndex();
+            if (selected == 0) { // record
+                mRecorderUI.show();
+            } else { // play
+                int index = selected-1;
+                Recording meta = mRecMeta[index];
+                long timestamp = meta.getStartTimeMillis();
+                Recording rec = RecordingService.getRecording(timestamp);
+                mAudioController.playSound(rec.getContentType(), rec.getData());
+            }
+        } else if (pCommand == mMoreCommand) {
+            int selected = mList.getSelectedIndex();
+            if (selected > 0) { // a recording is active
+                Recording rec = mRecMeta[selected-1];
+                mMoreUI.setRecording(rec);
+            } else { // the record-button is active
+                mMoreUI.setRecording(null);
+            }
+            mMoreUI.show();
+        } else {
+            log("WARNING! Unknown command was executed.");
+        }
+    }
+    
+    protected Displayable updateUI() {
+        mList.deleteAll();
+        mList.append("Record", null);
+        
+        mRecMeta = RecordingService.getAllRecordingsMeta();
+        for (int i=0, len=mRecMeta.length; i<len; ++i) {
+            String name = mRecMeta[i].getName();
+            mList.append(name, null);
+        }
+        
+        return mList;
+    }
+    
+    // Utility methods
+    
+    protected void log(String pMessage) {
+        Logger.log(this, pMessage);
+    }
+}
+ 
