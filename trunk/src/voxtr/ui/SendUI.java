@@ -83,7 +83,7 @@ public class SendUI implements CommandListener, Showable {
 						.install(
 								phoneNo,
 								"A friend wants you to install Voxtr. Select the link below to install Voxtr.    ",
-								"http://voxtr.googlecode.com/files/voxtr.jad");
+								"http://voxtr.googlecode.com/files/Voxtr.jad");
 			} else {
 				this.info("No phone no entered", "Please enter a phone no");
 			}
