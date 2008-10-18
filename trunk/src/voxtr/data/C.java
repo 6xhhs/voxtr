@@ -17,6 +17,7 @@ package voxtr.data;
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class C {
     
@@ -33,5 +34,6 @@ public class C {
     public static final String APP_STRING_SOFTKEY_STOP = "Stop";
     public static final String APP_STRING_SOFTKEY_EXIT = "Exit";
     public static final String APP_STRING_SOFTKEY_MORE = "More";
+    public static final String APP_STRING_SOFTKEY_SEND = "Send";
     
 }

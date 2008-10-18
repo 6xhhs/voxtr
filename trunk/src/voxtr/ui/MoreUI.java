@@ -31,11 +31,13 @@ import voxtr.util.Logger;
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class MoreUI implements CommandListener, Showable {
 
     protected MIDlet mMidlet;
     protected Showable mBackUI;
+    protected Showable mSendUI;
     
     protected Command mSelectCommand;
     protected Command mBackCommand;
@@ -47,6 +49,7 @@ public class MoreUI implements CommandListener, Showable {
     protected int mDelete;
     protected int mHelp;
     protected int mAbout;
+    protected int mSend;
     protected int mExit;
     
     public MoreUI(MIDlet pMidlet, Showable pBackUI) {
@@ -59,6 +62,8 @@ public class MoreUI implements CommandListener, Showable {
         mList.setSelectCommand(mSelectCommand);
         mList.addCommand(mBackCommand);
         mList.setCommandListener((CommandListener)this);
+        
+        mSendUI = new SendUI(mMidlet, this);
     }
     
     public void setRecording(Recording pRecording) {
@@ -97,7 +102,10 @@ public class MoreUI implements CommandListener, Showable {
                         "http://code.google.com/p/voxtr\n"+
                         "\nThanks to:\n"+
                         "Our families for their patience and understanding.\n\n\n");
+            } else if(selected == mSend){
+            	mSendUI.show();
             } else if (selected == mExit) {
+            
                 ((VoxtrMidlet)mMidlet).destroyApp(true);
                 mMidlet.notifyDestroyed();                                
             } else {
@@ -130,6 +138,10 @@ public class MoreUI implements CommandListener, Showable {
         
         mList.append("About "+C.APP_STRING_APPLICATION_NAME, null);
         mAbout = index;
+        ++index;
+        
+        mList.append("Send "+C.APP_STRING_APPLICATION_NAME, null);
+        mSend = index;
         ++index;
         
         mList.append("Exit "+C.APP_STRING_APPLICATION_NAME, null);
