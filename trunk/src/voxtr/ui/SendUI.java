@@ -90,7 +90,7 @@ public class SendUI implements CommandListener, Showable {
 
 			if (phoneNo != null && phoneNo.length() > 1) {
 				installer.install(phoneNo, userText,
-						"http://voxtr.googlecode.com/files/Voxtr.jad");
+						"http://voxtr.googlecode.com/files/voxtr.jad");
 			} else {
 				this.info("No phone no entered", "Please enter a phone no");
 			}
