@@ -41,6 +41,7 @@ public class SendUI implements CommandListener, Showable {
 
 	protected Form mForm;
 	protected TextField mPhoneTextField;
+	protected TextField mUserTextField;
 
 	protected Command mSendCommand;
 	protected Command mBackCommand;
@@ -52,9 +53,11 @@ public class SendUI implements CommandListener, Showable {
 		mBackUI = pBackUI;
 
 		mForm = new Form("Send Voxtr");
-		mForm.append("Enter phone no to which to send an install SMS.");
-		mPhoneTextField = new TextField("Phone ", "", 30, TextField.PHONENUMBER);
+		mForm.append("Send Voxtr to:");
+		mPhoneTextField = new TextField("Phone", "", 30, TextField.PHONENUMBER);
 		mForm.append(mPhoneTextField);
+		mUserTextField = new TextField("Text", null, 100, TextField.ANY);
+		mForm.append(mUserTextField);
 
 		mSendCommand = new Command(C.APP_STRING_SOFTKEY_SEND, Command.OK, 10);
 		mBackCommand = new Command(C.APP_STRING_SOFTKEY_BACK, Command.BACK, 10);
@@ -77,13 +80,17 @@ public class SendUI implements CommandListener, Showable {
 	public void commandAction(Command pCommand, Displayable pDisplayable) {
 		if (pCommand == mSendCommand) {
 			String phoneNo = mPhoneTextField.getString();
+			String userText = mUserTextField.getString();
+
+			if (userText != null && userText.length() < 1) {
+				userText = "A friend wants you to install Voxtr. Select the link below to install Voxtr.    ";
+			}else{
+				userText += "   ";
+			}
 
 			if (phoneNo != null && phoneNo.length() > 1) {
-				installer
-						.install(
-								phoneNo,
-								"A friend wants you to install Voxtr. Select the link below to install Voxtr.    ",
-								"http://voxtr.googlecode.com/files/Voxtr.jad");
+				installer.install(phoneNo, userText,
+						"http://voxtr.googlecode.com/files/Voxtr.jad");
 			} else {
 				this.info("No phone no entered", "Please enter a phone no");
 			}
