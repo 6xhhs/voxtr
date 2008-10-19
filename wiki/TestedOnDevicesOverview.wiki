@@ -8,14 +8,16 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 Tested on following devices:
 (See below for legend.)
 
-||                 || _0.0.3_ || *0.1.0* ||
+||                 || _0.1.0_ || *0.2.4* || 
+|| _Motorola_      ||         || y?      ||
+|| C380            ||         ||         ||
 || _Sony Ericsson_ ||         ||         ||
 || W910i           || y       || y?      ||
-|| W850i           || y       || y       ||
-|| W810i           || y?      || y?      ||
+|| W850i           || y       || y?      ||
+|| W810i           || y       || y?      ||
 || W710i           || y       || y       ||
 || K800i           || y       || y?      ||
-|| K610i           || y       || y       ||
+|| K610i           || y       || y?      ||
 || _(more to come)_|| ...     ||         ||
 
 *Legend:*
