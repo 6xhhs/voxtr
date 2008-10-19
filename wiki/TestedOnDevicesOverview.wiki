@@ -1,27 +1,29 @@
 #summary Overview of tested devices.
 #labels overview,devices,phone,mobile
 
-= Overview of tested devices. =
+= Overview of tested devices =
 
 Please help us test Voxtr on different devices. Mail your reports to: {{{dariusmailbox AT gmail DOT com}}}
 
-Tested on following devices:
+*List of devices that should work according to specifications:*
+
 (See below for legend.)
 
-||                 || _0.1.0_ || *0.2.4* || 
-|| _Motorola_      ||         ||         ||
-|| C380            || -       || -       ||
-|| _Sony Ericsson_ ||         ||         ||
-|| W910i           || y       || y?      ||
-|| W880i           || -       || y       ||
-|| W850i           || y       || y?      ||
-|| W810i           || y       || y?      ||
-|| W710i           || y       || y       ||
-|| K800i           || y       || y?      ||
-|| K610i           || y       || y?      ||
-|| _(more to come)_||         || ...     ||
+||                 || _0.1.0_ || *0.2.4* || Comment ||
+|| _Motorola_      ||         ||         ||         ||
+|| C380            || -       || -       ||         ||
+|| _Sony Ericsson_ ||         ||         ||         ||
+|| W910i           || y       || y?      ||         ||
+|| W880i           || -       || y       ||         ||
+|| W850i           || y       || y?      ||         ||
+|| W810i           || y       || y?      ||         ||
+|| W710i           || y       || y       ||         ||
+|| K800i           || y       || y?      ||         ||
+|| K610i           || y       || y?      ||         ||
+|| _(more to come)_||         || ...     ||         ||
 
 *Legend:*
+
 || y          || Works (tested by Voxtr team) ||
 || Y          || Works (reported by external person) ||
 || n          || Doesn't work (tested by Voxtr team) ||
@@ -29,3 +31,9 @@ Tested on following devices:
 || y? _or_ Y? || Worked in previous version (not tested for this version) ||
 || n? _or_ N? || Didn't work in previous version (not tested for this version) ||
 || -          || Not tested ||
+
+*List of devices that won't work according to specifications:*
+
+|| Device          || Comment || 
+|| _Sony Ericsson_ ||         ||
+|| T610            || doesn't support MIDP 2.0 ||
