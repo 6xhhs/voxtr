@@ -9,8 +9,8 @@ Tested on following devices:
 (See below for legend.)
 
 ||                 || _0.1.0_ || *0.2.4* || 
-|| _Motorola_      ||         || y?      ||
-|| C380            ||         ||         ||
+|| _Motorola_      ||         ||         ||
+|| C380            ||         || y?      ||
 || _Sony Ericsson_ ||         ||         ||
 || W910i           || y       || y?      ||
 || W850i           || y       || y?      ||
