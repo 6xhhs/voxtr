@@ -28,7 +28,7 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 || N          || Doesn't work (reported by external person) ||
 || y? _or_ Y? || Worked in previous version (not tested for this version) ||
 || n? _or_ N? || Didn't work in previous version (not tested for this version) ||
-|| -          || Not tested ||
+|| -          || Not tested yet ||
 
 ----
 === List of devices that won't work according to specifications: ===
