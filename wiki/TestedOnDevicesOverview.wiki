@@ -10,15 +10,16 @@ Tested on following devices:
 
 ||                 || _0.1.0_ || *0.2.4* || 
 || _Motorola_      ||         ||         ||
-|| C380            ||         || y?      ||
+|| C380            || -       || -       ||
 || _Sony Ericsson_ ||         ||         ||
 || W910i           || y       || y?      ||
+|| W880i           || -       || y       ||
 || W850i           || y       || y?      ||
 || W810i           || y       || y?      ||
 || W710i           || y       || y       ||
 || K800i           || y       || y?      ||
 || K610i           || y       || y?      ||
-|| _(more to come)_|| ...     ||         ||
+|| _(more to come)_||         || ...     ||
 
 *Legend:*
 || y          || Works (tested by Voxtr team) ||
