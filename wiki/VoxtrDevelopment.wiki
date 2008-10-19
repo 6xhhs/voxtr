@@ -13,20 +13,20 @@
   * A beep should be heard before starting the recording.
   * Utilize Microlog
 
-
 == Maybelist ==
   * Add an icon to items in the list, e.g. the "Record" should have a triangle. The "Exit" could have a "backward arrow". Maybe some icon for the recordings as well?
   * Better formatting: If the recoding is longer than 60 secs, the format should be: mm:ss.
-  * A warning should be shown if the phone is in silent mode
+  * Show warning if phone is in silent mode
   * Some kind of visual indicator should be shown when the recording is ongoing. Maybe a red blinking triangle?
-  * A progress bar should be shown when playing the recording.
+  * Show progress bar when playing the recording.
   * Show a warning dialog if the recording fails - !MediaException
   * Warn if low on memory (in RMS)
   * Send recordings via MMS
   * Send recordings via mail
   * Save recording to file.
-  * It should be possible to change the name of a recording.
+  * Change the name of a recording.
   * Check for new version (Microinstall)
+  * Show "SMS Sent" after sending in SendUI.
 
 == Neverlist ==
   * ~~Record videos~~
