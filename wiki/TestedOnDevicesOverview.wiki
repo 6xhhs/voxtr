@@ -5,10 +5,8 @@
 
 Please help us test Voxtr on different devices. Mail your reports to: {{{dariusmailbox AT gmail DOT com}}}
 
-*List of devices that should work according to specifications:*
-
+=== List of devices that should work according to specifications: ===
 (See below for legend.)
-
 ||                 || _0.1.0_ || *0.2.4* || Comment ||
 || _Motorola_      ||         ||         ||         ||
 || C380            || -       || -       ||         ||
@@ -32,8 +30,10 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 || n? _or_ N? || Didn't work in previous version (not tested for this version) ||
 || -          || Not tested ||
 
-*List of devices that won't work according to specifications:*
+----
+=== List of devices that won't work according to specifications: ===
 
 || Device          || Comment || 
 || _Sony Ericsson_ ||         ||
 || T610            || doesn't support MIDP 2.0 ||
+|| _(many more)_   ||         ||
