@@ -6,6 +6,7 @@
   * Basic functionality (record, listen, delete, exit)
   * Auto-generate name on recording, like this: 15-Oct 19:05 (5s)
   * Added More UI with Delete, Help, About and Exit actions
+  * Added Send UI to send Voxtr to another user.
 
 == Wishlist ==
   * Better UI (items? canvas? lwuit?)
@@ -25,10 +26,7 @@
   * Send recordings via mail
   * Save recording to file.
   * It should be possible to change the name of a recording.
-  * Send the application to another user (Microinstall)
   * Check for new version (Microinstall)
-  * About dialog with the following information: Voxtr version, the development team members, credits?, links to Voxtr, Microlog, Microinstall
-  * Help dialog
 
 == Neverlist ==
   * ~~Record videos~~
