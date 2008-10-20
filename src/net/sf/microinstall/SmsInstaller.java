@@ -28,7 +28,9 @@ import javax.wireless.messaging.TextMessage;
  * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class SmsInstaller {
-
+	
+	private static final int SMS_LENGTH = 158; //two chars (0x0A) are added below
+	
 	private MessageConnection messageConnection;
 
 	/**
@@ -51,12 +53,19 @@ public class SmsInstaller {
 			throw new IllegalArgumentException(
 					"The installationURL must not be null.");
 		}
-
+		
+		if ((installationURL.length()+installationText.length()) > SMS_LENGTH) {
+			throw new IllegalArgumentException(
+					"SMS content exceeds "+SMS_LENGTH+" characters.");
+		}
+		
+		
+		
 		StringBuffer messageBuffer = new StringBuffer(200);
 		if (installationText != null) {
 			messageBuffer.append(installationText);
 		} else {
-			messageBuffer.append("Please press the link below.");
+			messageBuffer.append("Please select the following link.");
 		}
 
 		messageBuffer.append(new char[] { 0x0A });

@@ -91,7 +91,7 @@ public class MoreUI implements CommandListener, Showable {
             } else if (selected == mHelp) {
                 info("Help", "\n\nHelp text not implemented yet.\n\n");
             } else if (selected == mAbout) {
-                info("About", "\n\n\n\nVoxtr\n\nThe Voice Recorder\n\n\n\n\n"+
+                info("About", "\n\nVoxtr\n\nThe Voice Recorder\n\n\n\n"+
                         "Version: "+C.APP_STRING_APPLICATION_VERSION+"\n\n"+
                         "Developed by the Voxtr team:\n"+
                         "Darius Katz\n"+
@@ -140,11 +140,11 @@ public class MoreUI implements CommandListener, Showable {
         mAbout = index;
         ++index;
         
-        mList.append("Send "+C.APP_STRING_APPLICATION_NAME, null);
+        mList.append("Share "+C.APP_STRING_APPLICATION_NAME, null);
         mSend = index;
         ++index;
         
-        mList.append("Exit "+C.APP_STRING_APPLICATION_NAME, null);
+        mList.append("Exit", null);
         mExit = index;
         ++index;
         

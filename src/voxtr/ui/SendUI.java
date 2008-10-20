@@ -1,17 +1,16 @@
 /*
- * Copyright 2008 Voxtr - The Open Source Project 
+ * Copyright 2008 Voxtr - The Open Source Project
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *
  */
-
 package voxtr.ui;
 
 import javax.microedition.lcdui.Alert;
@@ -30,92 +29,90 @@ import voxtr.data.C;
 import voxtr.util.Logger;
 
 /**
- * 
+ *
  * @author Darius Katz (dariusmailbox@gmail.com)
  * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class SendUI implements CommandListener, Showable {
 
-	protected MIDlet mMidlet;
-	protected Showable mBackUI;
+    protected static final String SMS_TEXT = "Your friend recommends you to try out Voxtr, The Voice Recorder. Follow this link to install Voxtr:   ";
+    protected static final String URL_TO_JAD_FILE = C.URL_TO_JAD_FILE;
+            
+    protected MIDlet mMidlet;
+    protected Showable mBackUI;
+    protected Form mForm;
+    protected TextField mPhoneTextField;
+//	protected TextField mUserTextField;
+    protected Command mSendCommand;
+    protected Command mBackCommand;
+    protected SmsInstaller installer;
 
-	protected Form mForm;
-	protected TextField mPhoneTextField;
-	protected TextField mUserTextField;
+    public SendUI(MIDlet pMidlet, Showable pBackUI) {
+        mMidlet = pMidlet;
+        mBackUI = pBackUI;
 
-	protected Command mSendCommand;
-	protected Command mBackCommand;
+        mForm = new Form("Share Voxtr");
+        mForm.append("To share Voxtr via SMS enter your friend's phone number and press Send.");
+        mPhoneTextField = new TextField("Phone number", "", 30, TextField.PHONENUMBER);
+        mForm.append(mPhoneTextField);
+//		mUserTextField = new TextField("Text", null, 100, TextField.ANY);
+//		mForm.append(mUserTextField);
 
-	protected SmsInstaller installer;
+        mSendCommand = new Command(C.APP_STRING_SOFTKEY_SEND, Command.OK, 10);
+        mBackCommand = new Command(C.APP_STRING_SOFTKEY_BACK, Command.BACK, 10);
 
-	public SendUI(MIDlet pMidlet, Showable pBackUI) {
-		mMidlet = pMidlet;
-		mBackUI = pBackUI;
+        mForm.addCommand(mSendCommand);
+        mForm.addCommand(mBackCommand);
 
-		mForm = new Form("Send Voxtr");
-		mForm.append("Send Voxtr to:");
-		mPhoneTextField = new TextField("Phone", "", 30, TextField.PHONENUMBER);
-		mForm.append(mPhoneTextField);
-		mUserTextField = new TextField("Text", null, 100, TextField.ANY);
-		mForm.append(mUserTextField);
+        mForm.setCommandListener(this);
 
-		mSendCommand = new Command(C.APP_STRING_SOFTKEY_SEND, Command.OK, 10);
-		mBackCommand = new Command(C.APP_STRING_SOFTKEY_BACK, Command.BACK, 10);
+        installer = new SmsInstaller();
+    }
 
-		mForm.addCommand(mSendCommand);
-		mForm.addCommand(mBackCommand);
+    // Implementation of Showable interface
+    public void show() {
+        Displayable ui = updateUI();
+        Display.getDisplay(mMidlet).setCurrent(ui);
+    }
 
-		mForm.setCommandListener(this);
+    // Implementation of CommandListener interface
+    public void commandAction(Command pCommand, Displayable pDisplayable) {
+        if (pCommand == mSendCommand) {
+            String phoneNo = mPhoneTextField.getString();
+//			String userText = mUserTextField.getString();
+//
+//			if (userText != null && userText.length() < 1) {
+//				userText = "A friend wants you to install Voxtr. Select the link below to install Voxtr.    ";
+//			}else{
+//				userText += "   ";
+//			}
 
-		installer = new SmsInstaller();
-	}
+            if (phoneNo != null && phoneNo.length() > 1) {
+                installer.install(phoneNo, SMS_TEXT, URL_TO_JAD_FILE);
+                info("SMS Info", "SMS is now being sent to your friend.");
+            } else {
+                this.info("Attention", "Phone number missing. Please enter a phone number.");
+            }
+        } else if (pCommand == mBackCommand) {
+            mBackUI.show();
+        } else {
+            log("WARNING! Unknown command was executed.");
+        }
+    }
 
-	// Implementation of Showable interface
-	public void show() {
-		Displayable ui = updateUI();
-		Display.getDisplay(mMidlet).setCurrent(ui);
-	}
+    protected Displayable updateUI() {
+        return mForm;
+    }
 
-	// Implementation of CommandListener interface
-	public void commandAction(Command pCommand, Displayable pDisplayable) {
-		if (pCommand == mSendCommand) {
-			String phoneNo = mPhoneTextField.getString();
-			String userText = mUserTextField.getString();
+    // Utility methods
+    protected void info(String pTitle, String pMessage) {
+        Alert info = new Alert(pTitle, pMessage, null, AlertType.INFO);
+        info.setTimeout(Alert.FOREVER);
+        Display.getDisplay(mMidlet).setCurrent(info);
 
-			if (userText != null && userText.length() < 1) {
-				userText = "A friend wants you to install Voxtr. Select the link below to install Voxtr.    ";
-			}else{
-				userText += "   ";
-			}
+    }
 
-			if (phoneNo != null && phoneNo.length() > 1) {
-				installer.install(phoneNo, userText,
-						"http://voxtr.googlecode.com/files/voxtr.jad");
-			} else {
-				this.info("No phone no entered", "Please enter a phone no");
-			}
-		} else if (pCommand == mBackCommand) {
-			mBackUI.show();
-		} else {
-			log("WARNING! Unknown command was executed.");
-		}
-	}
-
-	protected Displayable updateUI() {
-
-		return mForm;
-	}
-
-	// Utility methods
-
-	protected void info(String pTitle, String pMessage) {
-		Alert info = new Alert(pTitle, pMessage, null, AlertType.INFO);
-		info.setTimeout(Alert.FOREVER);
-		Display.getDisplay(mMidlet).setCurrent(info);
-
-	}
-
-	protected void log(String pMessage) {
-		Logger.log(this, pMessage);
-	}
+    protected void log(String pMessage) {
+        Logger.log(this, pMessage);
+    }
 }

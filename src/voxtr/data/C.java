@@ -24,7 +24,7 @@ public class C {
     //CONSTANTS
     
     public static final String APP_STRING_APPLICATION_NAME = "Voxtr";
-    public static final String APP_STRING_APPLICATION_VERSION = "0.2.4";
+    public static final String APP_STRING_APPLICATION_VERSION = "0.3.0";
 
     public static final String APP_STRING_SOFTKEY_OK = "OK";
     public static final String APP_STRING_SOFTKEY_SELECT = "Select";
@@ -35,5 +35,9 @@ public class C {
     public static final String APP_STRING_SOFTKEY_EXIT = "Exit";
     public static final String APP_STRING_SOFTKEY_MORE = "More";
     public static final String APP_STRING_SOFTKEY_SEND = "Send";
+    
+    public static final String URL_TO_JAD_FILE = "http://voxtr.googlecode.com/files/voxtr.jad";
+    public static final String URL_TO_JAR_FILE = "http://voxtr.googlecode.com/files/voxtr.jar";
+    public static final String URL_TO_CHECK_FOR_NEW_VERSION_FILE = "not used yet";
     
 }
