@@ -10,6 +10,8 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 ||                 || _0.1.0_ || _0.2.4_ || *0.3.0* ||
 || _Motorola_      ||         ||         ||         ||
 || C380            || -       || -       || -       ||
+|| _Nokia_         ||         ||         ||         ||
+|| 6600            || -       || -       || -       ||
 || _Sony Ericsson_ ||         ||         ||         ||
 || W910i           || y       || y?      || y?      ||
 || W880i           || -       || y       || y?      ||
