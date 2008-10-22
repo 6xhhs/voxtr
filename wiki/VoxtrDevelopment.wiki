@@ -34,8 +34,8 @@
 = The Links =
 
 The following Open Source products are used within Voxtr:
-  * [http://microlog.sourceforge.net Microlog]
-  * [http://sourceforge.net/projects/microinstall/ Microinstall]
+  * [http://microlog.sourceforge.net Microlog] - Logging in Java ME.
+  * [http://sourceforge.net/projects/microinstall/ Microinstall] - Enables easy sharing of MIDlets.
 
 
   * ~~Add note to recording~~
