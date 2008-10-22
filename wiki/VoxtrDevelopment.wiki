@@ -30,6 +30,7 @@
 
 == Neverlist ==
   * ~~Record videos~~
+  * ~~Add note to recording~~
 
 = The Links =
 
@@ -38,4 +39,4 @@ The following Open Source products are used within Voxtr:
   * [http://sourceforge.net/projects/microinstall/ Microinstall] - Enables easy sharing of MIDlets.
 
 
-  * ~~Add note to recording~~
+  
