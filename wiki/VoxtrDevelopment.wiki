@@ -6,10 +6,10 @@
   * Basic functionality (record, listen, delete, exit)
   * Auto-generate name on recording, like this: 15-Oct 19:05 (5s)
   * Added More UI with Delete, Help, About and Exit actions
-  * Added Send UI to send Voxtr to another user.
+  * Added Send UI to share Voxtr
 
 == Wishlist ==
-  * Better UI (items? canvas? lwuit?)
+  * Better UI (screen/items? canvas? lwuit?)
   * A beep should be heard before starting the recording.
   * Utilize Microlog
 
@@ -26,7 +26,6 @@
   * Save recording to file.
   * Change the name of a recording.
   * Check for new version (Microinstall)
-  * Show "SMS Sent" after sending in SendUI.
 
 == Neverlist ==
   * ~~Record videos~~
