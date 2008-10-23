@@ -11,7 +11,7 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 || _Motorola_      ||         ||         ||         ||
 || C380            || -       || -       || -       ||
 || _Nokia_         ||         ||         ||         ||
-|| 6600 (S60 2nd)  || -       || -       || -       ||
+|| 6600 (S60 2nd)  || -       || y       || y?      ||
 || _Sony Ericsson_ ||         ||         ||         ||
 || W910i           || y       || y?      || y?      ||
 || W880i           || -       || y       || y?      ||
@@ -20,7 +20,7 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 || W710i           || y       || y       || y?      ||
 || K800i           || y       || y?      || y?      ||
 || K610i           || y       || y?      || y       ||
-|| _(more to come)_||         || ...     ||         ||
+|| _(more to come)_||         ||         || ...     ||
 
 *Legend:*
 
