@@ -61,7 +61,7 @@ public class MoreUI implements CommandListener, Showable {
         mList = new List(C.APP_STRING_SOFTKEY_MORE, List.IMPLICIT);
         mList.setSelectCommand(mSelectCommand);
         mList.addCommand(mBackCommand);
-        mList.setCommandListener((CommandListener)this);
+        mList.setCommandListener(this);
         
         mSendUI = new SendUI(mMidlet, this);
     }
