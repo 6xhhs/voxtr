@@ -56,12 +56,12 @@ public class MainUI implements CommandListener, Showable {
         mList = new List(C.APP_STRING_APPLICATION_NAME + " (v" + C.APP_STRING_APPLICATION_VERSION + ")", List.IMPLICIT);
         mList.setSelectCommand(mSelectCommand);
         mList.addCommand(mMoreCommand);
-        mList.setCommandListener((CommandListener) this);
+        mList.setCommandListener(this);
 
         mAudioController = new AudioController();
 
-        mMoreUI = new MoreUI(mMidlet, (Showable) this);
-        mRecorderUI = new RecorderUI(mMidlet, (Showable) this, mAudioController);
+        mMoreUI = new MoreUI(mMidlet, this);
+        mRecorderUI = new RecorderUI(mMidlet, this, mAudioController);
         
         try {
             recordImage = Image.createImage("/record.png");

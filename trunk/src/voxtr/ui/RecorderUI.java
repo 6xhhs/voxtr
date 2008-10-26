@@ -46,7 +46,7 @@ public class RecorderUI implements CommandListener, Showable {
         mForm = new Form("Recorder");
         mStopCommand = new Command(C.APP_STRING_SOFTKEY_STOP, Command.OK, 10);
         mForm.addCommand(mStopCommand);
-        mForm.setCommandListener((CommandListener)this);        
+        mForm.setCommandListener(this);        
     }
     
     // Implementation of Showable interface
