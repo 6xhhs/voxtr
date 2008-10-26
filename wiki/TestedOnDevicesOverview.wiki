@@ -7,20 +7,20 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 
 === List of devices that should work according to specifications: ===
 (See below for legend.)
-||                 || _0.1.0_ || _0.2.4_ || *0.3.0* ||
-|| _Motorola_      ||         ||         ||         ||
-|| C380            || -       || -       || -       ||
-|| _Nokia_         ||         ||         ||         ||
-|| 6600 (S60 2nd)  || -       || y       || y?      ||
-|| _Sony Ericsson_ ||         ||         ||         ||
-|| W910i           || y       || y?      || y?      ||
-|| W880i           || -       || y       || y?      ||
-|| W850i           || y       || y?      || y?      ||
-|| W810i           || y       || y?      || y?      ||
-|| W710i           || y       || y       || y?      ||
-|| K800i           || y       || y?      || y?      ||
-|| K610i           || y       || y?      || y       ||
-|| _(more to come)_||         ||         || ...     ||
+||                 || _0.1.0_ || _0.2.4_ || 0.3.0 || *0.4.0* ||
+|| _Motorola_      ||         ||         ||       ||       ||
+|| C380            || -       || -       || -     || -     ||
+|| _Nokia_         ||         ||         ||       ||       ||
+|| 6600 (S60 2nd)  || -       || y       || y?    || y?    ||
+|| _Sony Ericsson_ ||         ||         ||       ||       ||
+|| W910i           || y       || y?      || y?    || y?    ||
+|| W880i           || -       || y       || y?    || y?    ||
+|| W850i           || y       || y?      || y?    || y?    ||
+|| W810i           || y       || y?      || y?    || y?    ||
+|| W710i           || y       || y       || y?    || y?    ||
+|| K800i           || y       || y?      || y?    || y?    ||
+|| K610i           || y       || y?      || y     || y     ||
+|| _(more to come)_||         ||         ||       || ...   ||
 
 *Legend:*
 
