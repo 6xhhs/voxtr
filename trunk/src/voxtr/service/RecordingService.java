@@ -112,7 +112,7 @@ public class RecordingService {
         String minuteString = minute<10 ? "0"+minute : Integer.toString(minute);
         
         String length = getSecondsString(pStartTime, pStopTime);
-        return day+"-"+monthString+" "+hourString+":"+minuteString+" ("+length+")";
+        return day+"-"+monthString+" "+hourString+":"+minuteString+" "+length;
     }
     
 }

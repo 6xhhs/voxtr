@@ -30,7 +30,8 @@ import voxtr.util.Logger;
  */
 public class MMAPIService {
     
-    protected Player mPlayer;
+    protected Player mRecordingPlayer;
+    protected Player mPlayingPlayer;
     protected RecordControl mRecordControl;
     protected ByteArrayOutputStream mRecordingOutput;
     protected String mContentType;
@@ -67,10 +68,13 @@ public class MMAPIService {
 //        log("- - - - -");
 
         try {
+            if (mPlayingPlayer!=null && mPlayingPlayer.getState()==Player.STARTED) {
+                mPlayingPlayer.stop();
+            }            
             InputStream is = new ByteArrayInputStream(mAudioData);
-            Player player = Manager.createPlayer(is, mContentType);
-            player.realize();
-            player.start();
+            mPlayingPlayer = Manager.createPlayer(is, mContentType);
+            mPlayingPlayer.realize();
+            mPlayingPlayer.start();                
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (MediaException ex) {
@@ -86,13 +90,13 @@ public class MMAPIService {
             public void run() {
                 log("startAudioCapture()->Thread.run() BEGIN");
                 try {
-                    mPlayer = Manager.createPlayer("capture://audio");
-                    mPlayer.realize();
-                    mRecordControl = (RecordControl)mPlayer.getControl("RecordControl");
+                    mRecordingPlayer = Manager.createPlayer("capture://audio");
+                    mRecordingPlayer.realize();
+                    mRecordControl = (RecordControl)mRecordingPlayer.getControl("RecordControl");
                     mRecordingOutput = new ByteArrayOutputStream();
                     mRecordControl.setRecordStream(mRecordingOutput);
                     mRecordControl.startRecord();        
-                    mPlayer.start();
+                    mRecordingPlayer.start();
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (MediaException ex) {
@@ -109,13 +113,13 @@ public class MMAPIService {
             try {
                 mRecordControl.stopRecord();
                 mRecordControl.commit();
-                mPlayer.stop();
+                mRecordingPlayer.stop();
                 mContentType = mRecordControl.getContentType();
                 mRecordingOutput.close();
-                mPlayer.close();
+                mRecordingPlayer.close();
                 mAudioData = mRecordingOutput.toByteArray();
                 mRecordingOutput = null;
-                mPlayer = null;
+                mRecordingPlayer = null;
             } catch (IOException ex) {
                 ex.printStackTrace();
             } catch (MediaException ex) {
