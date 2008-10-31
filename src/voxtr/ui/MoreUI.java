@@ -22,11 +22,12 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.List;
 import javax.microedition.midlet.MIDlet;
+
+import net.sf.microlog.Logger;
 import voxtr.data.C;
 import voxtr.data.Recording;
 import voxtr.midlet.VoxtrMidlet;
 import voxtr.service.RecordingService;
-import voxtr.util.Logger;
 
 /**
  *
@@ -34,6 +35,8 @@ import voxtr.util.Logger;
  * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class MoreUI implements CommandListener, Showable {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected MIDlet mMidlet;
     protected Showable mBackUI;
@@ -82,10 +85,10 @@ public class MoreUI implements CommandListener, Showable {
             int selected = mList.getSelectedIndex();
             if (selected == mDelete) {
                 if (mRecording != null) {
-                    log("DELETE pressed");
+                    log.debug("DELETE pressed");
                     RecordingService.deleteRecording(mRecording);
                 } else {
-                    log("SYSTEM ERROR! mRecording is null.");
+                    log.error("SYSTEM ERROR! mRecording is null.");
                 }
                 mBackUI.show();
             } else if (selected == mHelp) {
@@ -109,13 +112,13 @@ public class MoreUI implements CommandListener, Showable {
                 ((VoxtrMidlet)mMidlet).destroyApp(true);
                 mMidlet.notifyDestroyed();                                
             } else {
-                log("WARNING! Unknown index was selected.");
+                log.warn("WARNING! Unknown index was selected.");
             }
         } else if (pCommand == mBackCommand) {
             mRecording = null;
             mBackUI.show();
         } else {
-            log("WARNING! Unknown command was executed.");
+            log.warn("WARNING! Unknown command was executed.");
         }
     }
     
@@ -160,8 +163,5 @@ public class MoreUI implements CommandListener, Showable {
         
     }
     
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
-    }
 }
  

@@ -14,16 +14,19 @@
 
 package voxtr.controller;
 
+import net.sf.microlog.Logger;
 import voxtr.data.Recording;
 import voxtr.service.MMAPIService;
 import voxtr.service.RecordingService;
-import voxtr.util.Logger;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class AudioController {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected MMAPIService mMMAPIService;
     protected long mStartTimeMillis;
@@ -59,18 +62,12 @@ public class AudioController {
                         contentType, audioData);
                 RecordingService.addRecording(recording);
             } else {
-                log("ERROR! AudioData length is 0.");
+                log.error("ERROR! AudioData length is 0.");
             }
         } else {
-            log("ERROR! AudioData is null.");
+            log.error("ERROR! AudioData is null.");
         }        
     }    
-
-    // Utility methods
-    
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
-    }
     
 }
 

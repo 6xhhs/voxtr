@@ -18,17 +18,21 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import javax.microedition.media.Manager;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.control.RecordControl;
-import voxtr.util.Logger;
+
+import net.sf.microlog.Logger;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
  */
 public class MMAPIService {
+	
+	private final static Logger log = Logger.getLogger();
     
     protected Player mRecordingPlayer;
     protected Player mPlayingPlayer;
@@ -55,7 +59,7 @@ public class MMAPIService {
     
     
     public void startAudioPlaying() {
-        log("startAudioPlaying() BEGIN");
+        log.debug("startAudioPlaying() BEGIN");
 
 //        String[] protocols = Manager.getSupportedProtocols(null);
 //        for (int i=0, len=protocols.length; i<len; ++i) {
@@ -80,7 +84,7 @@ public class MMAPIService {
         } catch (MediaException ex) {
             ex.printStackTrace();
         }
-        log("startAudioPlaying() END");
+        log.debug("startAudioPlaying() END");
     }
     
     public void startAudioCapture() {
@@ -88,7 +92,7 @@ public class MMAPIService {
         mContentType = null;
         (new Thread() {
             public void run() {
-                log("startAudioCapture()->Thread.run() BEGIN");
+                log.debug("startAudioCapture()->Thread.run() BEGIN");
                 try {
                     mRecordingPlayer = Manager.createPlayer("capture://audio");
                     mRecordingPlayer.realize();
@@ -102,13 +106,13 @@ public class MMAPIService {
                 } catch (MediaException ex) {
                     ex.printStackTrace();
                 }                
-                log("startAudioCapture()->Thread.run() END");
+                log.debug("startAudioCapture()->Thread.run() END");
             }
         }).start();
     }
     
     public void stopAudioCapture() {        
-        log("stopAudioCapture() BEGIN");
+        log.debug("stopAudioCapture() BEGIN");
         if (mRecordControl != null) {
             try {
                 mRecordControl.stopRecord();
@@ -128,15 +132,9 @@ public class MMAPIService {
                 ex.printStackTrace();
             }
         } else {
-            log("ERROR! RecordControl is null.");
+            log.error("ERROR! RecordControl is null.");
         }
-        log("stopAudioCapture() END");
-    }
-
-    // Utility methods
-    
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
+        log.debug("stopAudioCapture() END");
     }
     
 }

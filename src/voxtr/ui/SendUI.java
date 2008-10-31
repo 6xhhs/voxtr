@@ -24,95 +24,96 @@ import javax.microedition.lcdui.TextField;
 import javax.microedition.midlet.MIDlet;
 
 import net.sf.microinstall.SmsInstaller;
-
+import net.sf.microlog.Logger;
 import voxtr.data.C;
-import voxtr.util.Logger;
 
 /**
- *
+ * 
  * @author Darius Katz (dariusmailbox@gmail.com)
  * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class SendUI implements CommandListener, Showable {
 
-    protected static final String SMS_TEXT = "Your friend recommends you to try out Voxtr, The Voice Recorder. Follow this link to install Voxtr:   ";
-    protected static final String URL_TO_JAD_FILE = C.URL_TO_JAD_FILE;
-            
-    protected MIDlet mMidlet;
-    protected Showable mBackUI;
-    protected Form mForm;
-    protected TextField mPhoneTextField;
-//	protected TextField mUserTextField;
-    protected Command mSendCommand;
-    protected Command mBackCommand;
-    protected SmsInstaller installer;
+	private final static Logger log = Logger.getLogger();
 
-    public SendUI(MIDlet pMidlet, Showable pBackUI) {
-        mMidlet = pMidlet;
-        mBackUI = pBackUI;
+	protected static final String SMS_TEXT = "Your friend recommends you to try out Voxtr, The Voice Recorder. Follow this link to install Voxtr:   ";
+	protected static final String URL_TO_JAD_FILE = C.URL_TO_JAD_FILE;
 
-        mForm = new Form("Share Voxtr");
-        mForm.append("To share Voxtr via SMS enter your friend's phone number and press Send.");
-        mPhoneTextField = new TextField("Phone number", "", 30, TextField.PHONENUMBER);
-        mForm.append(mPhoneTextField);
-//		mUserTextField = new TextField("Text", null, 100, TextField.ANY);
-//		mForm.append(mUserTextField);
+	protected MIDlet mMidlet;
+	protected Showable mBackUI;
+	protected Form mForm;
+	protected TextField mPhoneTextField;
+	// protected TextField mUserTextField;
+	protected Command mSendCommand;
+	protected Command mBackCommand;
+	protected SmsInstaller installer;
 
-        mSendCommand = new Command(C.APP_STRING_SOFTKEY_SEND, Command.OK, 10);
-        mBackCommand = new Command(C.APP_STRING_SOFTKEY_BACK, Command.BACK, 10);
+	public SendUI(MIDlet pMidlet, Showable pBackUI) {
+		mMidlet = pMidlet;
+		mBackUI = pBackUI;
 
-        mForm.addCommand(mSendCommand);
-        mForm.addCommand(mBackCommand);
+		mForm = new Form("Share Voxtr");
+		mForm
+				.append("To share Voxtr via SMS enter your friend's phone number and press Send.");
+		mPhoneTextField = new TextField("Phone number", "", 30,
+				TextField.PHONENUMBER);
+		mForm.append(mPhoneTextField);
+		// mUserTextField = new TextField("Text", null, 100, TextField.ANY);
+		// mForm.append(mUserTextField);
 
-        mForm.setCommandListener(this);
+		mSendCommand = new Command(C.APP_STRING_SOFTKEY_SEND, Command.OK, 10);
+		mBackCommand = new Command(C.APP_STRING_SOFTKEY_BACK, Command.BACK, 10);
 
-        installer = new SmsInstaller();
-    }
+		mForm.addCommand(mSendCommand);
+		mForm.addCommand(mBackCommand);
 
-    // Implementation of Showable interface
-    public void show() {
-        Displayable ui = updateUI();
-        Display.getDisplay(mMidlet).setCurrent(ui);
-    }
+		mForm.setCommandListener(this);
 
-    // Implementation of CommandListener interface
-    public void commandAction(Command pCommand, Displayable pDisplayable) {
-        if (pCommand == mSendCommand) {
-            String phoneNo = mPhoneTextField.getString();
-//			String userText = mUserTextField.getString();
-//
-//			if (userText != null && userText.length() < 1) {
-//				userText = "A friend wants you to install Voxtr. Select the link below to install Voxtr.    ";
-//			}else{
-//				userText += "   ";
-//			}
+		installer = new SmsInstaller();
+	}
 
-            if (phoneNo != null && phoneNo.length() > 1) {
-                installer.install(phoneNo, SMS_TEXT, URL_TO_JAD_FILE);
-                info("SMS Info", "SMS is now being sent to your friend.");
-            } else {
-                this.info("Attention", "Phone number missing. Please enter a phone number.");
-            }
-        } else if (pCommand == mBackCommand) {
-            mBackUI.show();
-        } else {
-            log("WARNING! Unknown command was executed.");
-        }
-    }
+	// Implementation of Showable interface
+	public void show() {
+		Displayable ui = updateUI();
+		Display.getDisplay(mMidlet).setCurrent(ui);
+	}
 
-    protected Displayable updateUI() {
-        return mForm;
-    }
+	// Implementation of CommandListener interface
+	public void commandAction(Command pCommand, Displayable pDisplayable) {
+		if (pCommand == mSendCommand) {
+			String phoneNo = mPhoneTextField.getString();
+			// String userText = mUserTextField.getString();
+			//
+			// if (userText != null && userText.length() < 1) {
+			// userText = "A friend wants you to install Voxtr. Select the link
+			// below to install Voxtr. ";
+			// }else{
+			// userText += " ";
+			// }
 
-    // Utility methods
-    protected void info(String pTitle, String pMessage) {
-        Alert info = new Alert(pTitle, pMessage, null, AlertType.INFO);
-        info.setTimeout(Alert.FOREVER);
-        Display.getDisplay(mMidlet).setCurrent(info);
+			if (phoneNo != null && phoneNo.length() > 1) {
+				installer.install(phoneNo, SMS_TEXT, URL_TO_JAD_FILE);
+				info("SMS Info", "SMS is now being sent to your friend.");
+			} else {
+				this.info("Attention",
+						"Phone number missing. Please enter a phone number.");
+			}
+		} else if (pCommand == mBackCommand) {
+			mBackUI.show();
+		} else {
+			log.warn("WARNING! Unknown command was executed.");
+		}
+	}
 
-    }
+	protected Displayable updateUI() {
+		return mForm;
+	}
 
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
-    }
+	// Utility methods
+	protected void info(String pTitle, String pMessage) {
+		Alert info = new Alert(pTitle, pMessage, null, AlertType.INFO);
+		info.setTimeout(Alert.FOREVER);
+		Display.getDisplay(mMidlet).setCurrent(info);
+
+	}
 }

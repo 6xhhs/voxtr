@@ -20,15 +20,19 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Form;
 import javax.microedition.midlet.MIDlet;
+
+import net.sf.microlog.Logger;
 import voxtr.controller.AudioController;
 import voxtr.data.C;
-import voxtr.util.Logger;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class RecorderUI implements CommandListener, Showable {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected MIDlet mMidlet;
     protected Showable mBackUI;
@@ -68,9 +72,4 @@ public class RecorderUI implements CommandListener, Showable {
         return mForm;
     }
 
-    // Utility methods
-    
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
-    }
 }
