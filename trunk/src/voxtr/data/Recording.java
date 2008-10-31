@@ -19,13 +19,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import voxtr.util.Logger;
+
+import net.sf.microlog.Logger;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class Recording {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected long mStartTimeMillis;
     protected long mStopTimeMillis;
@@ -89,7 +93,7 @@ public class Recording {
             } else {
                 dos.writeInt(0);
                 dos.writeBoolean(false);
-                log("WARNING! Recording has no data, only metadata.");
+                log.warn("WARNING! Recording has no data, only metadata.");
             }
             
             // nothing went wrong
@@ -117,7 +121,7 @@ public class Recording {
                 int len = dis.read(mData, 0, mSize);
                 if (len != mSize) {
                     // not enough bytes were copied, but why?
-                    log("WARNING. Less bytes read than expected.");
+                    log.warn("WARNING. Less bytes read than expected.");
                 }
             } else {
                 mData = null;
@@ -125,12 +129,6 @@ public class Recording {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    // Utility methods
-    
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
     }
     
 }

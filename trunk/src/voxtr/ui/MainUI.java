@@ -14,6 +14,7 @@
 package voxtr.ui;
 
 import java.io.IOException;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Display;
@@ -22,17 +23,20 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.List;
 import javax.microedition.midlet.MIDlet;
 
+import net.sf.microlog.Logger;
 import voxtr.controller.AudioController;
 import voxtr.data.C;
 import voxtr.data.Recording;
 import voxtr.service.RecordingService;
-import voxtr.util.Logger;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class MainUI implements CommandListener, Showable {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected MIDlet mMidlet;
     protected Command mSelectCommand;
@@ -101,7 +105,7 @@ public class MainUI implements CommandListener, Showable {
             }
             mMoreUI.show();
         } else {
-            log("WARNING! Unknown command was executed.");
+            log.warn("WARNING! Unknown command was executed.");
         }
     }
 
@@ -118,8 +122,4 @@ public class MainUI implements CommandListener, Showable {
         return mList;
     }
 
-    // Utility methods
-    protected void log(String pMessage) {
-        Logger.log(this, pMessage);
-    }
 }

@@ -25,13 +25,18 @@ import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreFullException;
 import javax.microedition.rms.RecordStoreNotFoundException;
 import javax.microedition.rms.RecordStoreNotOpenException;
+
+import net.sf.microlog.Logger;
 import voxtr.data.Recording;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class RecordingDB {
+	
+	private final static Logger log = Logger.getLogger();
     protected static final String RECORDSTORE_NAME = "VOXTR_RECORDING_DB";
 
     protected static RecordStore mRecordStore;
@@ -41,6 +46,7 @@ public class RecordingDB {
 
     //Select one based on timestamp
     public static Recording select(long pTimestamp) {
+    	log.debug("select "+pTimestamp);
         openRecordStore();
 
         try {

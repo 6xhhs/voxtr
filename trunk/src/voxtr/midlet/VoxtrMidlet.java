@@ -15,14 +15,20 @@
 package voxtr.midlet;
 
 import javax.microedition.midlet.MIDlet;
+
+import net.sf.microlog.Logger;
+import net.sf.microlog.util.Properties;
 import voxtr.ui.MainUI;
 import voxtr.ui.Showable;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class VoxtrMidlet extends MIDlet {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected boolean mIsFirstTime = true;
 
@@ -31,6 +37,8 @@ public class VoxtrMidlet extends MIDlet {
     protected void startApp() {
         if (mIsFirstTime) {
             mIsFirstTime = false;
+            Properties properties = new Properties(this);
+            log.configure(properties);
             
             mStartUI = new MainUI(this);
             mStartUI.show();

@@ -16,14 +16,19 @@ package voxtr.service;
 
 import java.util.Calendar;
 import java.util.Date;
+
+import net.sf.microlog.Logger;
 import voxtr.data.Recording;
 import voxtr.persist.RecordingDB;
 
 /**
  *
  * @author Darius Katz (dariusmailbox@gmail.com)
+ * @author Johan Karlsson (johan.karlsson@jayway.se)
  */
 public class RecordingService {
+	
+	private final static Logger log = Logger.getLogger();
 
     protected static final String SECONDS_STRING = "s";
     
