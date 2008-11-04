@@ -11,6 +11,7 @@ Please help us test Voxtr on different devices. Mail your reports to: {{{dariusm
 || _Motorola_      ||         ||         ||       ||       ||
 || C380            || -       || -       || -     || -     ||
 || _Nokia_         ||         ||         ||       ||       ||
+|| 2600 (S40 2nd)  ||         ||         ||       ||       ||
 || 6600 (S60 2nd)  || -       || y       || y?    || y?    ||
 || _Sony Ericsson_ ||         ||         ||       ||       ||
 || W910i           || y       || y?      || y?    || y?    ||
