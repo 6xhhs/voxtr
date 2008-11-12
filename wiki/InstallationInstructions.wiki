@@ -1,0 +1,4 @@
+#This page contains description on how to install voxtr
+
+= Installation Instructions =
+
