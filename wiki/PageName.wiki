@@ -1,3 +1,0 @@
-#This page contains instructions on how to install Voxtr.
-
-= How to install Voxtr =
