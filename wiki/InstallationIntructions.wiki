@@ -1,12 +1,9 @@
-#This page contains the installation instructions for Voxtr
-
 = Installations Instructions =
 
 The simplest way to install Voxtr is by downloading it directly to your mobile device. This is done the following way:
 
-# Open your mobile browser
-# Go to http://code.google.com/p/voxtr/downloads/Voxtr.jad
-# Follow the instructions on the screen.
+  # Open your mobile browser
+  # Go to http://code.google.com/p/voxtr/downloads/Voxtr.jad
+  # Follow the instructions on the screen.
 
 The Voxtr should now be installed on your mobile phone. Using the link above always insure that you get the latest version.
-
